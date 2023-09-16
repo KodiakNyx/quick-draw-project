@@ -1,0 +1,16 @@
+body{
+    background-color: skyblue;
+}
+#Score{
+    font-size: 25px;
+    margin-left:20px;
+    float: left;
+}
+#Timer{
+    font-size: 25px;
+    margin-right: 20px;
+    float: right; 
+}
+#Sketch{
+    color: silver;
+}
