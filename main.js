@@ -354,3 +354,44 @@ timer_check = "";
 drawn_sketch = "";
 answer_holder = "";
 score = 0;
+
+update_canvas(){
+  background("white");
+  random_number = Math.floor(Math.random() * quick_draw_data_set.length + 1);
+sketch = quick_draw_data_set[random_number];
+console.log(sketch);
+document.getElementById("sketch").innerHTML = "sketch to be drawn" + sketch;
+}
+
+setup(){
+  canvas = createCanvas(280, 280);
+  canvas.center();
+  background("white");
+}
+
+draw(){
+  check_sketch();
+  if (drawn_sketch == sketch)
+  {
+    answer_holder = "set";
+    score++;
+    document.getElementById("score").innerHTML = "score = " + score;
+  }
+  
+}
+
+check_sketch(){
+  timer_counter++;
+  document.getElementById(time).innerHTML = "timer_counter = " + timer_counter;
+  console.log(timer_counter)
+  if (timer_counter > 400)
+  {
+    timer_counter = 0;
+    timer_check = "completed";
+  }
+  if (timer_check == "completed") or(answer_holder == "set"){
+    timer_check = "";
+    answer_holder = "";
+    update_canvas();
+  }
+}
